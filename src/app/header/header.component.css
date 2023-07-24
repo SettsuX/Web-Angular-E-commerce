@@ -1,0 +1,33 @@
+.mat-tool {
+    padding: 40px; 
+    padding-bottom: 50px; 
+    display: flex; 
+    justify-content: space-between;
+}
+
+.custom-bar {
+    padding: 45px;
+}
+  
+
+.image-logo{
+    width: 170px; 
+    height: 100px; 
+    padding: 20px; 
+    position: relative;
+}
+
+.mat-toolbar.mat-accent {
+    background: #f2c4dd;
+}
+
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.mat-button {
+    color: #000;
+    padding-left: 25px;
+    padding-right: 25px;
+}

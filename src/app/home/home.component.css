@@ -1,0 +1,59 @@
+mat-grid-tile {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.image-container {
+    position: relative;
+    height: 180px;
+}
+
+.home-page-product-image {
+    width: 135px;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+.home-page-product-image-unclickable {
+    width: 135px;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.search-container {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container {
+    width: 100%;
+    max-width: auto; 
+    height: auto; 
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.clickable {
+    cursor: pointer;
+    padding-right: 40px;
+    margin: 5px;
+}

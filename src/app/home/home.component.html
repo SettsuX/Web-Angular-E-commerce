@@ -1,0 +1,96 @@
+<div class="container mt-5">
+
+   <div class="container mt-5">
+      <img src="/assets/img/Banner.png" alt="banner">
+   </div>
+
+   <div class="search-container">
+      <mat-form-field appearance="outline" style="width: 300px;">
+         <mat-label>Search any product</mat-label>
+         <input matInput
+               #searchkeyword
+               (keyup)="searchByKeyword(searchkeyword.value)"
+               name="searchKey"
+               id="searchKey"
+               placeholder="Search any product">
+      </mat-form-field>
+      <mat-icon style="padding: 20px;"> search </mat-icon>
+   </div>
+
+   <!-- <div style="position:relative;width: 200px;height: 200px;background-color:green">
+      <div>
+          <a href="#">Content to be blocked.</a>
+      </div>
+      <div style="position: absolute;top:0;left:0;width: 200px;height:200px;background-color: blue;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>
+  </div> -->
+
+   <!-- <mat-grid-list cols="6" rowHeight="3:4" gutterSize="20">
+      <mat-grid-tile *ngFor="let p of productDetails" style="background-color: #f3eeeb;">
+         <div class="row">
+            <div class="image-container">
+               <img class="home-page-product-image" [src]="p.productImages[0].url" alt="" (click)="showProductDetails(p.productId)">
+            </div>
+            <div align="middle">
+               <p><b>{{p.productName}} ( คงเหลือ {{p.productStock}} )</b></p>
+               <b style="text-decoration: line-through;">{{p.productActualPrice}} ฿</b> &nbsp;
+               <b style="color: red; font-size: 130%;" >{{p.productDiscountedPrice}} ฿</b>
+            </div> -->
+
+            <!-- <div class="mt-2">
+               <p style="white-space: inherit; height: 40px; width: 288px; overflow: hidden; text-overflow: ellipsis;">des</p>
+            </div> -->
+            <!-- <div class="mt-2" align="end">
+               <b >{{p.productDiscountedPrice}} ฿</b> <br>
+               <b style="text-decoration: line-through;">{{p.productActualPrice}}</b>
+            </div> -->
+            <!-- <div class="mt-2">
+               <button type="button" mat-raised-button color="warn" (click)="showProductDetails(p.productId)">View Details</button>
+            </div> -->
+            <!-- <div align="end">
+               <mat-icon class="clickable" (click)="addToCart(p.productId)"> add_shopping_cart </mat-icon>
+            </div>
+         </div>
+      </mat-grid-tile>
+    </mat-grid-list> <br><br> -->
+
+    <mat-grid-list cols="6" rowHeight="3:4" gutterSize="20">
+      <mat-grid-tile *ngFor="let p of productDetails" style="background-color: #f3eeeb;">
+         <div class="row">
+            <div *ngIf="p.productStock > 0; else showonlyImage" class="image-container">
+               <img class="home-page-product-image" [src]="p.productImages[0].url" alt="" (click)="showProductDetails(p.productId)">
+            </div>
+            <ng-template #showonlyImage>
+               <div class="image-container">
+                  <img class="home-page-product-image-unclickable" [src]="p.productImages[0].url" alt="">
+               </div>
+            </ng-template>
+            <div align="middle">
+               <p><b>{{p.productName}} ( คงเหลือ {{p.productStock}} )</b></p>
+               <ng-container *ngIf="p.productStock > 0; else outOfStock">
+                 <b style="text-decoration: line-through;">{{p.productActualPrice}} ฿</b> &nbsp;
+                 <b style="color: red; font-size: 130%;" >{{p.productDiscountedPrice}} ฿</b>
+               </ng-container>
+               <ng-template #outOfStock>
+                 <b style="color: red;">Out of Stock</b>
+               </ng-template>
+            </div>
+            <div align="end">
+               <ng-container *ngIf="p.productStock > 0; else outOfStockIcon">
+                 <mat-icon class="clickable" (click)="addToCart(p.productId)"> add_shopping_cart </mat-icon>
+               </ng-container>
+               <ng-template #outOfStockIcon>
+                 <mat-icon>remove_shopping_cart</mat-icon>
+               </ng-template>
+            </div>
+         </div>
+      </mat-grid-tile>
+    </mat-grid-list> <br><br>
+
+    <div class="text-center mt-5" style="padding-bottom: 100px;" *ngIf="showLoadButton">
+      <button type="button" mat-raised-button color="primary" (click)="loadMoreProduct()"> Load more</button>
+    </div>
+
+    <div class="mt-5" >
+         
+    </div>
+</div>

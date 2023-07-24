@@ -1,0 +1,40 @@
+<mat-toolbar color="basic" class="mat-tool">
+  <a href="">
+    <img class="image-logo" src="/assets/img/Logo.png" alt="image">
+  </a>
+    <!-- <button mat-button color="primary" routerLink="/">Home</button> -->
+  <div>
+    <button *ngIf="! isLoggedIn()" routerLink="/login" mat-raised-button color="primary">
+      Login
+    </button>
+    <button *ngIf="isLoggedIn()" (click)="logout()" mat-raised-button color="warn">
+      Logout
+    </button>
+  </div>
+</mat-toolbar>
+
+
+<!-- <mat-toolbar color="primary" *ngIf="isLoggedIn()">
+  <button mat-raised-button color="primary" routerLink="/">Home</button>
+  <button *ngIf="!isAdmin()" mat-raised-button color="primary" routerLink="/cart">Cart</button>
+  <button *ngIf="!isAdmin()" mat-raised-button color="primary" routerLink="/myOrders">My Orders</button>
+  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/addNewProduct">Add New Product</button>
+  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/showProductDetails">Show Product Details</button>
+  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/orderInformation">Order Information</button>
+</mat-toolbar> -->
+
+<mat-toolbar *ngIf="isLoggedIn() && isAdmin()" color="accent" class="custom-bar">
+  <div class="title-center">
+    <button mat-button color="primary" routerLink="/showProductDetails">Stock</button>
+    <button mat-button color="primary" routerLink="/addNewProduct">Add New Product</button>
+    <button mat-button color="primary" routerLink="/orderInformation">Order</button>
+  </div>
+</mat-toolbar>
+
+<mat-toolbar *ngIf="isLoggedIn() && isUser()" color="accent" class="custom-bar">
+  <div class="title-center">
+    <button mat-button color="primary" routerLink="/">Home</button>
+    <button mat-button color="primary" routerLink="/cart">Cart</button>
+    <button mat-button color="primary" routerLink="/myOrders">Order</button>
+  </div>
+</mat-toolbar>

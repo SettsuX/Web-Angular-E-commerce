@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+}
+
+table td {
+  padding: 20px;
+}
+
+.mat-column-Address {
+  width: 25% !important;
+}
+
+.mat-header-cell {
+  color: #000;
+  background-color:  #f1e7dd;
+}

@@ -1,0 +1,86 @@
+<!-- <div class="container mt-5">
+    <div class="card" style="padding: 20px;">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Username</mat-label>
+                <input matInput
+                       ngModel
+                       name="userName"
+                       id="userName"
+                       placeholder="Username">
+                <mat-hint>Username</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input type="password"
+                    matInput
+                       ngModel
+                       name="userPassword"
+                       id="userPassword"
+                       placeholder="Password">
+                <mat-hint>Password</mat-hint>
+            </mat-form-field>
+
+            <button class="w-100" type="submit" mat-raised-button color="primary">Login</button>
+        </form>
+
+        
+    </div>
+    <div class="text-center">
+        <br>
+        <button class="w-20" mat-raised-button type="button" (click)="registerUser()">Create an account</button>
+    </div>
+        
+</div> -->
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="login100-form validate-form">
+                <span class="login100-form-title">
+                    Login
+                </span>
+
+                <div class="wrap-input100">
+                    <input ngModel
+                    name="userName"
+                    id="userName"
+                    class="input100" placeholder="Username">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <mat-icon> perm_identity </mat-icon>
+                    </span>
+                </div>
+
+                <div class="wrap-input100">
+                    <input ngModel
+                    name="userPassword"
+                    id="userPassword"
+                    class="input100" type="password" placeholder="Password">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <mat-icon> lock </mat-icon>
+                    </span>
+                </div>
+                
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+
+                <br>
+
+                <div class="text-center p-t-136">
+                    <a class="txt2" (click)="registerUser()">
+                        Create your Account
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,149 @@
+<div class="container mt-5">
+    <div class="card p-3">
+        <div class="row">
+            <div class="col-6">
+
+                <table class="table">
+                    <thead class="thead">
+                        <tr>
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody">
+                        <tr *ngFor="let product of productDetails">
+                            <td>
+                                <img class="home-page-product-image" [src]="product.productImages[0].url">
+                            </td>
+                            <td>{{product.productName}}</td>
+                            <td>{{product.productDiscountedPrice}}</td>
+                            <td>
+                                <select 
+                                #quantity
+                                class="form-select"
+                                [ngModel]="getQuantityForProduct(product.productId)"
+                                (change)="onQuantityChanged(quantity.value, product.productId)"
+                                >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <!-- <ng-container *ngFor="let product of productDetails">
+                                        <option 
+                                          *ngFor="let i of [].constructor(product.productStock); let j=index"
+                                          [value]="j+1"
+                                          [selected]="getQuantityForProduct(product.productId) === j+1">
+                                          {{j+1}}
+                                        </option>
+                                    </ng-container> -->
+                                    
+                                </select>
+                            </td>
+                            <td>
+                                {{getCalculatedTotal(product.productId, product.productDiscountedPrice)}}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td> {{getCalculatedGrandTotal()}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- <div style="margin-top: 30px;">
+                    <div (click)="selectFile.click()" class="dropzone"
+                         appDrag
+                         (files)="fileDropped($event)">
+                        <div class="text-wrapper">
+
+                            <div class="centered">
+                                Drop your file or browse a file
+                            </div>
+
+                        </div>
+                    </div>
+                    <input multiple
+                           type="file"
+                           style="display: none;"
+                           #selectFile
+                           value="select"
+                           (change)="onFileSelected($event)">
+                </div>
+
+                <div class="mt-5">
+                    <div class="row">
+                        <mat-grid-list cols="4"
+                                       rowHeight="1:1">
+                            <mat-grid-tile *ngFor="let file of orderDetails.orderImages; let i = index;">
+                                <div style="position: relative">
+                                    <span class="btn-remove-image"
+                                          (click)="removeImages(i)">x</span>
+                                    <img [src]="file.url"
+                                         width="100px"
+                                         height="100px">
+                                </div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </div>
+                </div> -->
+
+                <!-- <form #orderForm="ngForm"
+                      (ngSubmit)="createTransactionAndPlaceOrder(orderForm)"> -->
+
+            </div>
+            <div class="col-6">
+
+                <form #orderForm="ngForm"
+                      (ngSubmit)="placeOrder(orderForm)">
+
+                    <mat-form-field appearance="outline"
+                                    class="w-100">
+                        <mat-label>Full name</mat-label>
+                        <input matInput
+                               placeholder="Full name"
+                               [(ngModel)]="orderDetails.fullName"
+                               name="fullName">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline"
+                                    class="w-100">
+                        <mat-label>Full address</mat-label>
+                        <input matInput
+                               placeholder="Full address"
+                               [(ngModel)]="orderDetails.fullAddress"
+                               name="fullAddress">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline"
+                                    class="w-100">
+                        <mat-label>Contact number</mat-label>
+                        <input matInput
+                               placeholder="Contact number"
+                               [(ngModel)]="orderDetails.contactNumber"
+                               name="contactNumber">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline"
+                                    class="w-100">
+                        <mat-label>Alternate contact number</mat-label>
+                        <input matInput
+                               placeholder="Alternate contact number"
+                               [(ngModel)]="orderDetails.alternateContactNumber"
+                               name="alternateContactNumber">
+                    </mat-form-field>
+
+                    <div align="right">
+                        <button type="submit" mat-stroked-button color="primary">Place Order</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

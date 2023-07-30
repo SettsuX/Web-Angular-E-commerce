@@ -8,7 +8,7 @@ WEB :
   - Karma
   - Jasmine
 
-# How To Build And Run : web-angular-registration (frontend)
+# How To Build And Run : Web-Angular-E-commerce
   - Install dependencies :
 ```sh
     $ npm install

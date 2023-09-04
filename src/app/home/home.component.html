@@ -65,7 +65,7 @@
                </div>
             </ng-template>
             <div align="middle">
-               <p><b>{{p.productName}} ( คงเหลือ {{p.productStock}} )</b></p>
+               <p><b>{{p.productName}} <br> ( คงเหลือ {{p.productStock}} )</b></p>
                <ng-container *ngIf="p.productStock > 0; else outOfStock">
                  <b style="text-decoration: line-through;">{{p.productActualPrice}} ฿</b> &nbsp;
                  <b style="color: red; font-size: 130%;" >{{p.productDiscountedPrice}} ฿</b>

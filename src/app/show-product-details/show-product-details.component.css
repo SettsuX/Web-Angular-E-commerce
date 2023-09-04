@@ -7,10 +7,15 @@ table td {
 }
 
 .mat-column-description {
-    width: 35% !important;
+    width: 25% !important;
 }
 
 .mat-header-cell {
     color: #000;
     background-color:  #f1e7dd;
+}
+
+.stock-column-header {
+    background-color: red;
+    color: white; /* You can change the text color as needed */
 }

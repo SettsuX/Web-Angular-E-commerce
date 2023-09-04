@@ -5,7 +5,7 @@
     <mat-button-toggle value="Delivered" (click)="getAllOrderDetailsForAdmin('Delivered')" >Delivered</mat-button-toggle>
     <mat-button-toggle value="Cancelled" (click)="getAllOrderDetailsForAdmin('Cancelled By User')" >Cancelled By User</mat-button-toggle>
     <mat-button-toggle value="Cancelled" (click)="getAllOrderDetailsForAdmin('Cancelled By Admin')" >Cancelled By Admin</mat-button-toggle>
-    <mat-button-toggle value="Cancelled" (click)="getAllOrderDetailsForAdmin('Successful')" >Successful</mat-button-toggle>
+    <!-- <mat-button-toggle value="Cancelled" (click)="getAllOrderDetailsForAdmin('Successful')" >Successful</mat-button-toggle> -->
   </mat-button-toggle-group>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-3">
@@ -61,7 +61,7 @@
      <ng-container matColumnDef="Action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element"> 
-        <button *ngIf="element.orderStatus == 'Placed'" mat-raised-button color="primary" (click)="markAsDelivered(element.orderId)">Mark as Delivered</button>  &nbsp;
+        <button *ngIf="element.orderStatus == 'Placed'" mat-raised-button color="primary" (click)="markAsDelivered(element.orderId)">Delivered</button>  &nbsp;
         <button *ngIf="element.orderStatus == 'Placed'" mat-raised-button color="warn" (click)="markAsCancelled(element.orderId)">Cancel</button>  
       </td>
     </ng-container>

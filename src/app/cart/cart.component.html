@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div align="right" class="mb-3">
-        <button *ngIf="cartDetails > [0]" (click)="checkout()" color="primary" mat-raised-button>Checkout</button>
+        <button *ngIf="cartDetails > [0]" (click)="checkout()" color="primary" mat-raised-button>Confirm Order</button>
     </div>
     <table mat-table
            [dataSource]="cartDetails"
